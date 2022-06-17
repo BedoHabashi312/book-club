@@ -1,13 +1,11 @@
 package com.allforus.e_book;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.WindowManager;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -16,6 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+@SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
 
@@ -27,7 +26,6 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(this::checkUser, 4000);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void checkUser() {
         FirebaseUser firebaseUser = this.firebaseAuth.getCurrentUser();
         if (firebaseUser == null) {

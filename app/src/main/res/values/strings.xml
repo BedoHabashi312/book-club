@@ -7,4 +7,7 @@
     <string name="book_name">Book Name</string>
     <string name="author">Author</string>
     <string name="by_bedo_habashi">By Bedo Habashi</string>
+    <string name="login">Login</string>
+    <string name="today_a_reader_ntomorrow_a_leader">Today a reader\nTomorrow a\nleader</string>
+    <string name="sign_up">Sign Up</string>
 </resources>
