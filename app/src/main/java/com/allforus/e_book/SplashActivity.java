@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
     public void checkUser() {
         FirebaseUser firebaseUser = this.firebaseAuth.getCurrentUser();
         if (firebaseUser == null) {
-            startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
+            startActivity(new Intent(getApplicationContext(), OnBoarding.class));
             finish();
             return;
         }

@@ -15,4 +15,6 @@
     <string name="enter_password">Enter Password</string>
     <string name="enter_phone_number">Enter Phone Number</string>
     <string name="create_account">Create Account</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
 </resources>
