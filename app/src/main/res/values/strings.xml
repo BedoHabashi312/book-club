@@ -10,4 +10,9 @@
     <string name="login">Login</string>
     <string name="today_a_reader_ntomorrow_a_leader">Today a reader\nTomorrow a\nleader</string>
     <string name="sign_up">Sign Up</string>
+    <string name="remember_me">Remeber Me</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="create_account">Create Account</string>
 </resources>

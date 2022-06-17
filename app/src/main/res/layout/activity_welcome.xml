@@ -7,7 +7,7 @@
     android:background="#F8FBFF"
     android:padding="30dp"
     android:transitionName="transition_login"
-    tools:context=".Login">
+    tools:context=".WelcomeActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:src="@drawable/circle"
-            app:tint="@color/black" />
+            app:tint="@color/black"
+            android:contentDescription="@string/todo" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,18 +39,27 @@
             android:layout_marginTop="40dp">
 
             <Button
+                android:id="@+id/login_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
-                android:text="@string/login" />
+                android:background="@color/colorPrimary"
+                android:padding="12dp"
+                android:onClick="callLoginScreen"
+                android:text="@string/login"
+                android:textColor="@color/black"
+                tools:ignore="ButtonStyle,UsingOnClickInXml" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:text="@string/sign_up" />
+                android:background="@color/colorPrimary"
+                android:padding="14dp"
+                android:text="@string/sign_up"
+                android:textColor="@color/black" />
 
         </LinearLayout>
 
