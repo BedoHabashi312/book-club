@@ -1,6 +1,6 @@
-package com.allforus.e_book;
+package com.allforus.e_book.OnBoarding;
 
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.allforus.e_book.R;
 
 import java.util.List;
 
@@ -27,7 +29,7 @@ public class IntroViewPagerAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container,int position){
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View layoutScreen = inflater.inflate(R.layout.layout_screen, null);
+        @SuppressLint("InflateParams") View layoutScreen = inflater.inflate(R.layout.layout_screen, null);
 
         ImageView imgSlide = layoutScreen.findViewById(R.id.img_intro);
         TextView title = layoutScreen.findViewById(R.id.tv_title);

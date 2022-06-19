@@ -1,4 +1,4 @@
-package com.allforus.e_book;
+package com.allforus.e_book.OnBoarding;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -12,6 +12,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.allforus.e_book.R;
+import com.allforus.e_book.WelcomeActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;

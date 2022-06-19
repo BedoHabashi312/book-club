@@ -1,4 +1,4 @@
-package com.allforus.e_book;
+package com.allforus.e_book.OnBoarding;
 
 public class ScreenItem {
     String Title, Description;

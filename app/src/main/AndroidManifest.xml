@@ -14,7 +14,31 @@
         android:theme="@style/Theme.EBook"
         tools:targetApi="31">
         <activity
-            android:name=".OnBoarding"
+            android:name=".ForgetPasswordSuccessMessage"
+            android:exported="false" />
+        <activity
+            android:name=".SetNewPassword"
+            android:exported="false" />
+        <activity
+            android:name=".MakeSelection"
+            android:exported="false" />
+        <activity
+            android:name=".ForgetPassword"
+            android:exported="false" />
+        <activity
+            android:name=".VerifyOTP"
+            android:exported="false" />
+        <activity
+            android:name=".SignUp.SignUp3rdClass"
+            android:exported="false" />
+        <activity
+            android:name=".SignUp.SignUp2ndClass"
+            android:exported="false" />
+        <activity
+            android:name=".SignUp.SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".OnBoarding.OnBoarding"
             android:exported="false" />
         <activity
             android:name=".Login"

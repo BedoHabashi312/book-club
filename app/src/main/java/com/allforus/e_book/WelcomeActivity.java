@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 
+import com.allforus.e_book.SignUp.SignUp;
+
 public class WelcomeActivity extends AppCompatActivity {
 
     @Override
@@ -31,4 +33,18 @@ public class WelcomeActivity extends AppCompatActivity {
         }
     }
 
+    public void callSignUpScreen(View view) {
+
+        Intent intent = new Intent(getApplicationContext(), SignUp.class);
+
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View, String>(findViewById(R.id.signup_btn), "transition_signup");
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(WelcomeActivity.this, pairs);
+            startActivity(intent, options.toBundle());
+        } else {
+            startActivity(intent);
+        }
+    }
 }
