@@ -1,25 +1,29 @@
-package com.allforus.e_book;
+package com.allforus.e_book.SignUp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.allforus.e_book.DashboardUserActivity;
+import com.allforus.e_book.R;
+import com.allforus.e_book.SetNewPassword;
+import com.allforus.e_book.UserHelperClass;
 import com.chaos.view.PinView;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -53,7 +57,7 @@ public class VerifyOTP extends AppCompatActivity {
         phoneNo = getIntent().getStringExtra("phoneNo");
         whatToDO = getIntent().getStringExtra("whatToDO");
 
-        otpDescriptionText.setText(getResources().getString(R.string.otp_description_text) + phoneNo);
+        otpDescriptionText.setText(getResources().getString(R.string.otp_description_text) + " " + phoneNo);
 
         sendVerificationCodeToUser(phoneNo);
     }
@@ -105,7 +109,8 @@ public class VerifyOTP extends AppCompatActivity {
         firebaseAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        Toast.makeText(VerifyOTP.this, "Verification Completed!", Toast.LENGTH_SHORT).show();
+                        //Verification completed successfully here Either
+                        storeNewUsersData();
                     } else {
                         if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                             Toast.makeText(VerifyOTP.this, "Verification Not Completed! Try again.", Toast.LENGTH_SHORT).show();
@@ -114,10 +119,28 @@ public class VerifyOTP extends AppCompatActivity {
                 });
     }
 
+    private void storeNewUsersData() {
+
+        FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
+        DatabaseReference reference = rootNode.getReference("Users");
+
+        //Create helperclass reference and store data using firebase
+        UserHelperClass addNewUser = new UserHelperClass(fullName, username, email, phoneNo, password, date, gender);
+        reference.child(phoneNo).setValue(addNewUser);
+
+        //We will also create a Session here in next videos to keep the user logged In
+
+        startActivity(new Intent(getApplicationContext(), DashboardUserActivity.class));
+        finish();
+    }
+
     public void goToHomeFromOTP(View view) {
     }
 
     public void callNextScreenFromOTP(View view) {
-
+        String code = pinFromUser.getText().toString();
+        if (!code.isEmpty()){
+            verifyCode(code);
+        }
     }
 }

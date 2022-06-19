@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.ScrollView;
 
 import com.allforus.e_book.R;
-import com.allforus.e_book.VerifyOTP;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.hbb20.CountryCodePicker;
@@ -50,6 +49,9 @@ public class SignUp3rdClass extends AppCompatActivity {
         String _date = getIntent().getStringExtra("date");
         String _gender = getIntent().getStringExtra("gender");
         String _getUserEnteredPhoneNumber = Objects.requireNonNull(phoneNumber.getEditText()).getText().toString().trim();
+        if (_getUserEnteredPhoneNumber.charAt(0) == '0') {
+            _getUserEnteredPhoneNumber = _getUserEnteredPhoneNumber.substring(1);
+        }
         String _phoneNo = countryCodePicker.getSelectedCountryCodeWithPlus() + _getUserEnteredPhoneNumber;
 
         Intent intent = new Intent(getApplicationContext(), VerifyOTP.class);
