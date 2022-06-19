@@ -11,4 +11,8 @@ public class DashboardUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_user);
     }
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }
